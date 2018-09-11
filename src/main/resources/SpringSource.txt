@@ -119,6 +119,8 @@ Spring容器的refresh()【创建刷新】;
 						 	=====赋值之前：===
 						 	3）、应用Bean属性的值；为属性利用setter方法等进行赋值；
 						 		applyPropertyValues(beanName, mbd, bw, pvs);
+						 		【AutowiredAnnotationBeanPostProcessor在中间会找到当前bean需要注入的其他bean（回调方法postProcessPropertyValues（），然后从缓存（singletonObjects）中
+						 		尝试获取bean，如获取不到，先创建该bean，并放到容器中，然后用反射（reflect.Field.set(bean,fieldValue)）的方法为实例属性赋上值】
 						 4）、【Bean初始化】initializeBean(beanName, exposedObject, mbd);
 						 	1）、【执行Aware接口方法】invokeAwareMethods(beanName, bean);执行xxxAware接口的方法
 						 		BeanNameAware\BeanClassLoaderAware\BeanFactoryAware
