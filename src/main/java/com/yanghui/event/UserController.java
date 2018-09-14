@@ -7,8 +7,8 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class UserController {
 
-	@EventListener(classes={ApplicationEvent.class})
+	@EventListener(classes={MyApplicationEvent.class})
 	public void sendMsg(ApplicationEvent event){
-		System.out.println(event.getSource());
+		System.out.println("UserController..收到消息："+event.getSource());
 	}
 }

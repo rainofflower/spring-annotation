@@ -9,7 +9,7 @@ public class SendMsgListener implements ApplicationListener{
 
 	public void onApplicationEvent(ApplicationEvent event) {
 		if(event instanceof MyApplicationEvent){
-			System.out.println(event.getSource());
+			System.out.println("SendMsgListener..收到消息："+event.getSource());
 		}
 	}
 
