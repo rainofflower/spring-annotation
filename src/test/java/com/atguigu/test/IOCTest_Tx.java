@@ -16,9 +16,10 @@ public class IOCTest_Tx {
 
 		UserService userService = applicationContext.getBean(UserService.class);
 
-		// userService.insertUser();
-		// userService.updateUser();
 		userService.activeTransaction();
+		
+		userService.insertUser();
+		//userService.updateUser();
 
 		applicationContext.close();
 	}

@@ -19,9 +19,10 @@ public class UserDao {
 	}
 	
 	public void update() {
-		String username = UUID.randomUUID().toString().substring(0, 5);
-		Integer id = 1;
-		String sql = "update tbl_user set username = ? where id = ?";
+		String sql = "update `tbl_user` set username = ? where id = ?";
+		//String username = UUID.randomUUID().toString().substring(0, 5);
+		String username = "¸üÐÂname";
+		Integer id = 3;
 		jdbcTemplate.update(sql,username,id);
 	}
 

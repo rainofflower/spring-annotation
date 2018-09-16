@@ -21,46 +21,46 @@ import org.springframework.transaction.annotation.Transactional;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 /**
- * ÉùÃ÷Ê½ÊÂÎñ£º
+ * ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½
  * 
- * »·¾³´î½¨£º
- * 1¡¢µ¼ÈëÏà¹ØÒÀÀµ
- * 		Êı¾İÔ´¡¢Êı¾İ¿âÇı¶¯¡¢Spring-jdbcÄ£¿é
- * 2¡¢ÅäÖÃÊı¾İÔ´¡¢JdbcTemplate£¨SpringÌá¹©µÄ¼ò»¯Êı¾İ¿â²Ù×÷µÄ¹¤¾ß£©²Ù×÷Êı¾İ
- * 3¡¢¸ø·½·¨ÉÏ±ê×¢ @Transactional ±íÊ¾µ±Ç°·½·¨ÊÇÒ»¸öÊÂÎñ·½·¨£»
- * 4¡¢ @EnableTransactionManagement ¿ªÆô»ùÓÚ×¢½âµÄÊÂÎñ¹ÜÀí¹¦ÄÜ£»
+ * ï¿½ï¿½ï¿½ï¿½ï¿½î½¨ï¿½ï¿½
+ * 1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * 		ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½İ¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Spring-jdbcÄ£ï¿½ï¿½
+ * 2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½JdbcTemplateï¿½ï¿½Springï¿½á¹©ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½İ¿ï¿½ï¿½ï¿½ï¿½ï¿½Ä¹ï¿½ï¿½ß£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * 3ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½×¢ @Transactional ï¿½ï¿½Ê¾ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ñ·½·ï¿½ï¿½ï¿½
+ * 4ï¿½ï¿½ @EnableTransactionManagement ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü£ï¿½
  * 		@EnableXXX
- * 5¡¢ÅäÖÃÊÂÎñ¹ÜÀíÆ÷À´¿ØÖÆÊÂÎñ;
+ * 5ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½;
  * 		@Bean
  * 		public PlatformTransactionManager transactionManager()
  * 
  * 
- * Ô­Àí£º
- * 1£©¡¢@EnableTransactionManagement
- * 			ÀûÓÃTransactionManagementConfigurationSelector¸øÈİÆ÷ÖĞ»áµ¼Èë×é¼ş
- * 			µ¼ÈëÁ½¸ö×é¼ş
+ * Ô­ï¿½ï¿½
+ * 1ï¿½ï¿½ï¿½ï¿½@EnableTransactionManagement
+ * 			ï¿½ï¿½ï¿½ï¿½TransactionManagementConfigurationSelectorï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ»áµ¼ï¿½ï¿½ï¿½ï¿½ï¿½
+ * 			ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  * 			AutoProxyRegistrar
  * 			ProxyTransactionManagementConfiguration
- * 2£©¡¢AutoProxyRegistrar£º
- * 			¸øÈİÆ÷ÖĞ×¢²áÒ»¸ö InfrastructureAdvisorAutoProxyCreator ×é¼ş£»
- * 			InfrastructureAdvisorAutoProxyCreator£º£¿
- * 			ÀûÓÃºóÖÃ´¦ÀíÆ÷»úÖÆÔÚ¶ÔÏó´´½¨ÒÔºó£¬°ü×°¶ÔÏó£¬·µ»ØÒ»¸ö´úÀí¶ÔÏó£¨ÔöÇ¿Æ÷£©£¬´úÀí¶ÔÏóÖ´ĞĞ·½·¨ÀûÓÃÀ¹½ØÆ÷Á´½øĞĞµ÷ÓÃ£»
+ * 2ï¿½ï¿½ï¿½ï¿½AutoProxyRegistrarï¿½ï¿½
+ * 			ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½Ò»ï¿½ï¿½ InfrastructureAdvisorAutoProxyCreator ï¿½ï¿½ï¿½ï¿½ï¿½
+ * 			InfrastructureAdvisorAutoProxyCreatorï¿½ï¿½ï¿½ï¿½
+ * 			ï¿½ï¿½ï¿½Ãºï¿½ï¿½Ã´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¶ï¿½ï¿½ó´´½ï¿½ï¿½Ôºó£¬°ï¿½×°ï¿½ï¿½ï¿½ó£¬·ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½Ğ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğµï¿½ï¿½Ã£ï¿½
  * 
- * 3£©¡¢ProxyTransactionManagementConfiguration ×öÁËÊ²Ã´£¿
- * 			1¡¢¸øÈİÆ÷ÖĞ×¢²áÊÂÎñÔöÇ¿Æ÷£»
- * 				1£©¡¢ÊÂÎñÔöÇ¿Æ÷ÒªÓÃÊÂÎñ×¢½âµÄĞÅÏ¢£¬AnnotationTransactionAttributeSource½âÎöÊÂÎñ×¢½â
- * 				2£©¡¢ÊÂÎñÀ¹½ØÆ÷£º
- * 					TransactionInterceptor£»±£´æÁËÊÂÎñÊôĞÔĞÅÏ¢£¬ÊÂÎñ¹ÜÀíÆ÷£»
- * 					ËûÊÇÒ»¸ö MethodInterceptor£»
- * 					ÔÚÄ¿±ê·½·¨Ö´ĞĞµÄÊ±ºò£»
- * 						Ö´ĞĞÀ¹½ØÆ÷Á´£»
- * 						ÊÂÎñÀ¹½ØÆ÷£º
- * 							1£©¡¢ÏÈ»ñÈ¡ÊÂÎñÏà¹ØµÄÊôĞÔ
- * 							2£©¡¢ÔÙ»ñÈ¡PlatformTransactionManager£¬Èç¹ûÊÂÏÈÃ»ÓĞÌí¼ÓÖ¸¶¨ÈÎºÎtransactionmanger
- * 								×îÖÕ»á´ÓÈİÆ÷ÖĞ°´ÕÕÀàĞÍ»ñÈ¡Ò»¸öPlatformTransactionManager£»
- * 							3£©¡¢Ö´ĞĞÄ¿±ê·½·¨
- * 								Èç¹ûÒì³££¬»ñÈ¡µ½ÊÂÎñ¹ÜÀíÆ÷£¬ÀûÓÃÊÂÎñ¹ÜÀí»Ø¹ö²Ù×÷£»
- * 								Èç¹ûÕı³££¬ÀûÓÃÊÂÎñ¹ÜÀíÆ÷£¬Ìá½»ÊÂÎñ
+ * 3ï¿½ï¿½ï¿½ï¿½ProxyTransactionManagementConfiguration ï¿½ï¿½ï¿½ï¿½Ê²Ã´ï¿½ï¿½
+ * 			1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¿ï¿½ï¿½ï¿½ï¿½
+ * 				1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¿ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½AnnotationTransactionAttributeSourceï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½
+ * 				2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * 					TransactionInterceptorï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * 					ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ MethodInterceptorï¿½ï¿½
+ * 					ï¿½ï¿½Ä¿ï¿½ê·½ï¿½ï¿½Ö´ï¿½Ğµï¿½Ê±ï¿½ï¿½
+ * 						Ö´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * 						ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * 							1ï¿½ï¿½ï¿½ï¿½ï¿½È»ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½
+ * 							2ï¿½ï¿½ï¿½ï¿½ï¿½Ù»ï¿½È¡PlatformTransactionManagerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Îºï¿½transactionmanger
+ * 								ï¿½ï¿½ï¿½Õ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í»ï¿½È¡Ò»ï¿½ï¿½PlatformTransactionManagerï¿½ï¿½
+ * 							3ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½Ä¿ï¿½ê·½ï¿½ï¿½
+ * 								ï¿½ï¿½ï¿½ï¿½ì³£ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * 								ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½á½»ï¿½ï¿½ï¿½ï¿½
  * 			
  */
 @EnableTransactionManagement
@@ -68,7 +68,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 @Configuration
 public class TxConfig {
 	
-	//Êı¾İÔ´
+	//ï¿½ï¿½ï¿½ï¿½Ô´
 	@Bean
 	public DataSource dataSource() throws Exception{
 		ComboPooledDataSource dataSource = new ComboPooledDataSource();
@@ -82,12 +82,12 @@ public class TxConfig {
 	//
 	@Bean
 	public JdbcTemplate jdbcTemplate() throws Exception{
-		//Spring¶Ô@ConfigurationÀà»áÌØÊâ´¦Àí£»¸øÈİÆ÷ÖĞ¼Ó×é¼şµÄ·½·¨£¬¶à´Îµ÷ÓÃ¶¼Ö»ÊÇ´ÓÈİÆ÷ÖĞÕÒ×é¼ş
+		//Springï¿½ï¿½@Configurationï¿½ï¿½ï¿½ï¿½ï¿½ï¿½â´¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ¼ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îµï¿½ï¿½Ã¶ï¿½Ö»ï¿½Ç´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource());
 		return jdbcTemplate;
 	}
 	
-	//×¢²áÊÂÎñ¹ÜÀíÆ÷ÔÚÈİÆ÷ÖĞ
+	//×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	@Bean
 	public PlatformTransactionManager transactionManager() throws Exception{
 		return new DataSourceTransactionManager(dataSource());

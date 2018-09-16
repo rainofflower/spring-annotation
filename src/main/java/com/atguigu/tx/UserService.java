@@ -24,8 +24,8 @@ public class UserService {
 		userDao.insert();
 		//otherDao.other();xxx
 		System.out.println("≤Â»ÎÕÍ≥…...");
-		int i = 10/10;
-		//updateUser();
+		updateUser();
+		//int i = 10/0;
 	}
 	
 	
@@ -33,8 +33,7 @@ public class UserService {
 	public void updateUser() {
 		
 		userDao.update();
-		//insertUser();
-		//int i = 10/0;
+		int i = 10/0;
 	}
 	
 	@Transactional
