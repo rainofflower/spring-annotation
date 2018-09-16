@@ -13,8 +13,9 @@ public class MsgService {
 		System.out.println("Instantiate MsgService...");
 	}
 	
-	@EventListener(ApplicationEvent.class)
+	//@Scope("prototype")
+	//@EventListener(ApplicationEvent.class)
 	public void handle(ApplicationEvent event){
-		System.out.println("ÅªÉ¶àÏ£¿£¿£¿"+event);
+		System.out.println("MsgService====> ÅªÉ¶àÏ£¿£¿£¿"+event);
 	}
 }
