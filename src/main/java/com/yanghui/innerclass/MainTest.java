@@ -12,8 +12,8 @@ public class MainTest {
 				
 			}
 		};*/
-		//接口和原则上不可以
 		
+		//接口和抽象类不可以直接new,new匿名内部类并不是new 接口/抽象类，而是new 接口实现类/抽象类的子类
 		B1 b = new B1(new MyInterface1() {	//new接口（匿名内部类-->指向实现所有接口方法的类对象）
 
 			public void method1() {
