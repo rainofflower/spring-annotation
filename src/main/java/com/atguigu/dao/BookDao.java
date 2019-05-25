@@ -1,8 +1,9 @@
 package com.atguigu.dao;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
-//名字默认是类名首字母小写
+//鍚嶅瓧榛樿鏄被鍚嶉瀛楁瘝灏忓啓
 @Repository
 public class BookDao {
 	

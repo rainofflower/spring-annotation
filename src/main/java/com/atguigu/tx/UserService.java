@@ -23,7 +23,7 @@ public class UserService {
 	public void insertUser(){
 		userDao.insert();
 		//otherDao.other();xxx
-		System.out.println("²åÈëÍê³É...");
+		System.out.println("æ’å…¥å®Œæˆ...");
 		updateUser();
 		//int i = 10/0;
 	}
@@ -45,9 +45,9 @@ public class UserService {
 		currentTransactionStatus.rollbackToSavepoint(savepoint);*/
 		//currentTransactionStatus.isCompleted();
 		/*if(true) {
-			throw new RuntimeException("»Ø¹ö...");
+			throw new RuntimeException("å›æ»š...");
 		}*/
-		//tm.commit(currentTransactionStatus);//»ñÈ¡µ±Ç°Ïß³ÌµÄÊÂÎñ¹ÜÀíÆ÷£¬ÌáÇ°Ìá½»ÊÂÎñ£¬ºóĞøspring»áÔÙ´ÎÌá½»ÊÂÎñ£¬µ¼ÖÂÅ×³ö¶à´ÎÌá½»ÊÂÎñµÄÒì³£
+		//tm.commit(currentTransactionStatus);//è·å–å½“å‰çº¿ç¨‹çš„äº‹åŠ¡ç®¡ç†å™¨ï¼Œæå‰æäº¤äº‹åŠ¡ï¼Œåç»­springä¼šå†æ¬¡æäº¤äº‹åŠ¡ï¼Œå¯¼è‡´æŠ›å‡ºå¤šæ¬¡æäº¤äº‹åŠ¡çš„å¼‚å¸¸
 		Object currentProxy = AopContext.currentProxy();
 		insertUser();
 	}

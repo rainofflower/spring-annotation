@@ -16,13 +16,17 @@ public class MainTest {
 //		System.out.println(bean);
 		
 		ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfig.class);
-		Person bean = applicationContext.getBean(Person.class);
-		System.out.println(bean);
-		
-		String[] namesForType = applicationContext.getBeanNamesForType(Person.class);
-		for (String name : namesForType) {
+		String[] names = applicationContext.getBeanDefinitionNames();
+		for (String name: names) {
 			System.out.println(name);
 		}
+//		Person bean = applicationContext.getBean(Person.class);
+//		System.out.println(bean);
+//
+//		String[] namesForType = applicationContext.getBeanNamesForType(Person.class);
+//		for (String name : namesForType) {
+//			System.out.println(name);
+//		}
 	
 	}
 

@@ -1,37 +1,35 @@
 package com.atguigu.config;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.FilterType;
+import org.springframework.context.annotation.*;
 import org.springframework.context.annotation.ComponentScan.Filter;
-import org.springframework.context.annotation.ComponentScans;
 
 import com.atguigu.bean.Person;
 
-//ÅäÖÃÀà==ÅäÖÃÎÄ¼ş
-@Configuration  //¸æËßSpringÕâÊÇÒ»¸öÅäÖÃÀà
-
+//é…ç½®ç±»==é…ç½®æ–‡ä»¶
+@Configuration  //å‘Šè¯‰Springè¿™æ˜¯ä¸€ä¸ªé…ç½®ç±»
 @ComponentScans(
 		value = {
-				@ComponentScan(value="com.atguigu",includeFilters = {
-/*						@Filter(type=FilterType.ANNOTATION,classes={Controller.class}),
-						@Filter(type=FilterType.ASSIGNABLE_TYPE,classes={BookService.class}),*/
-						@Filter(type=FilterType.CUSTOM,classes={MyTypeFilter.class})
-				},useDefaultFilters = false)	
+				@ComponentScan(value="com.atguigu.bean"
+//						,includeFilters = {
+///*						@Filter(type=FilterType.ANNOTATION,classes={Controller.class}),
+//						@Filter(type=FilterType.ASSIGNABLE_TYPE,classes={BookService.class}),*/
+//					@Filter(type=FilterType.CUSTOM,classes={MyTypeFilter.class})
+//				}
+//			,useDefaultFilters = false
+				)
 		}
 		)
-//@ComponentScan  value:Ö¸¶¨ÒªÉ¨ÃèµÄ°ü
-//excludeFilters = Filter[] £ºÖ¸¶¨É¨ÃèµÄÊ±ºò°´ÕÕÊ²Ã´¹æÔòÅÅ³ıÄÇĞ©×é¼ş
-//includeFilters = Filter[] £ºÖ¸¶¨É¨ÃèµÄÊ±ºòÖ»ĞèÒª°üº¬ÄÄĞ©×é¼ş
-//FilterType.ANNOTATION£º°´ÕÕ×¢½â
-//FilterType.ASSIGNABLE_TYPE£º°´ÕÕ¸ø¶¨µÄÀàĞÍ£»
-//FilterType.ASPECTJ£ºÊ¹ÓÃASPECTJ±í´ïÊ½
-//FilterType.REGEX£ºÊ¹ÓÃÕıÔòÖ¸¶¨
-//FilterType.CUSTOM£ºÊ¹ÓÃ×Ô¶¨Òå¹æÔò
+//@ComponentScan  value:æŒ‡å®šè¦æ‰«æçš„åŒ…
+//excludeFilters = Filter[] ï¼šæŒ‡å®šæ‰«æçš„æ—¶å€™æŒ‰ç…§ä»€ä¹ˆè§„åˆ™æ’é™¤é‚£äº›ç»„ä»¶
+//includeFilters = Filter[] ï¼šæŒ‡å®šæ‰«æçš„æ—¶å€™åªéœ€è¦åŒ…å«å“ªäº›ç»„ä»¶
+//FilterType.ANNOTATIONï¼šæŒ‰ç…§æ³¨è§£
+//FilterType.ASSIGNABLE_TYPEï¼šæŒ‰ç…§ç»™å®šçš„ç±»å‹ï¼›
+//FilterType.ASPECTJï¼šä½¿ç”¨ASPECTJè¡¨è¾¾å¼
+//FilterType.REGEXï¼šä½¿ç”¨æ­£åˆ™æŒ‡å®š
+//FilterType.CUSTOMï¼šä½¿ç”¨è‡ªå®šä¹‰è§„åˆ™
 public class MainConfig {
 	
-	//¸øÈİÆ÷ÖĞ×¢²áÒ»¸öBean;ÀàĞÍÎª·µ»ØÖµµÄÀàĞÍ£¬idÄ¬ÈÏÊÇÓÃ·½·¨Ãû×÷Îªid
+	//ç»™å®¹å™¨ä¸­æ³¨å†Œä¸€ä¸ªBean;ç±»å‹ä¸ºè¿”å›å€¼çš„ç±»å‹ï¼Œidé»˜è®¤æ˜¯ç”¨æ–¹æ³•åä½œä¸ºid
 	@Bean("person")
 	public Person person01(){
 		return new Person("lisi", 20);

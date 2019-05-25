@@ -16,6 +16,6 @@ public class MsgService {
 	//@Scope("prototype")
 	//@EventListener(ApplicationEvent.class)
 	public void handle(ApplicationEvent event){
-		System.out.println("MsgService====> ÅªÉ¶àÏ£¿£¿£¿"+event);
+		System.out.println("MsgService====> å¼„å•¥å˜žï¼Ÿï¼Ÿï¼Ÿ"+event);
 	}
 }

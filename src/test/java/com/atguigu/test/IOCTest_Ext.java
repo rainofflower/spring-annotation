@@ -23,8 +23,8 @@ public class IOCTest_Ext {
 		AnnotationConfigApplicationContext applicationContext  = new AnnotationConfigApplicationContext(ExtConfig.class);
 		
 		
-		//·¢²¼ÊÂ¼ş£»
-		applicationContext.publishEvent(new ApplicationEvent(new String("ÎÒ·¢²¼µÄÊÂ¼ş")) {
+		//å‘å¸ƒäº‹ä»¶ï¼›
+		applicationContext.publishEvent(new ApplicationEvent(new String("æˆ‘å‘å¸ƒçš„äº‹ä»¶")) {
 		});
 		
 		UserService userService = applicationContext.getBean(UserService.class);

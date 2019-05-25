@@ -2,7 +2,7 @@ package com.yanghui.innerclass;
 
 public class B1 extends AbstractA{
 	
-	MyInterface1 myInterface1; //³ÖÓĞ½Ó¿Ú
+	MyInterface1 myInterface1; //æŒæœ‰æ¥å£
 	
 	public B1() {
 		// TODO Auto-generated constructor stub
@@ -26,13 +26,13 @@ public class B1 extends AbstractA{
 		//innerB1();
 		InnerB1 innerB1 = new InnerB1();
 		innerB1.innerB1();
-		innerB1.b();												//µ÷ÓÃÄÚ²¿Àà¼Ì³Ğ·½·¨
-		this.a();													//µ÷ÓÃÍâ²¿Àà¼Ì³Ğ·½·¨
+		innerB1.b();												//è°ƒç”¨å†…éƒ¨ç±»ç»§æ‰¿æ–¹æ³•
+		this.a();													//è°ƒç”¨å¤–éƒ¨ç±»ç»§æ‰¿æ–¹æ³•
 		//innerB1.method2();
-		myInterface1.method1();										//½Ó¿Ú»Øµ÷
+		myInterface1.method1();										//æ¥å£å›è°ƒ
 	}
 	
-	class InnerB1 extends AbstractB implements MyInterface2 {		//ÄÚ²¿ÀàÊµÏÖÎ±Ë«ÖØ¼Ì³Ğ£¨¶àÖØ¼Ì³Ğ£©
+	class InnerB1 extends AbstractB implements MyInterface2 {		//å†…éƒ¨ç±»å®ç°ä¼ªåŒé‡ç»§æ‰¿ï¼ˆå¤šé‡ç»§æ‰¿ï¼‰
 		
 		public void innerB1() {
 			System.out.println("innerB1");

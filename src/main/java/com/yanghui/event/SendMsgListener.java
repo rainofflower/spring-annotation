@@ -14,7 +14,7 @@ public class SendMsgListener implements ApplicationListener<ApplicationEvent>{
 	}
 
 	public void onApplicationEvent(ApplicationEvent event) {
-		//System.out.println("SendMsgListener..ÊÕµ½ÏûÏ¢£º"+event.getSource());
+		//System.out.println("SendMsgListener..æ”¶åˆ°æ¶ˆæ¯ï¼š"+event.getSource());
 	}
 
 }

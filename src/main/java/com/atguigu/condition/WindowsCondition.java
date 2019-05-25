@@ -5,7 +5,7 @@ import org.springframework.context.annotation.ConditionContext;
 import org.springframework.core.env.Environment;
 import org.springframework.core.type.AnnotatedTypeMetadata;
 
-//�ж��Ƿ�windowsϵͳ
+//判断是否windows系统
 public class WindowsCondition implements Condition {
 
 	public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {

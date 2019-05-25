@@ -21,22 +21,22 @@ public class Event_Test {
 	public void test(){
 		ApplicationContext applicationContext = new AnnotationConfigApplicationContext(Config_Event.class);
 		
-		applicationContext.publishEvent(new MyApplicationEvent("hi...ÏÂÎç²è"));
+		applicationContext.publishEvent(new MyApplicationEvent("hi...ä¸‹åˆèŒ¶"));
 		applicationContext.publishEvent(new ApplicationEvent("good night"){});
 	}
 	
 	/**
-	 * ÊÂ¼şÔ­ÀíÔ´Âë½âÎö¶ş
+	 * äº‹ä»¶åŸç†æºç è§£æäºŒ
 	 * 
-	 * 1¡¢SpringÊÂ¼ş×¢½â@EventListenerÊµÏÖ¼àÌıÔ­ÀíÊÇÔÚËùÓĞµ¥ÊµÀıbean´´½¨Íê³ÉÖ®ºó
-	 * £¨11²½Ä©Î²Í¨¹ıEventListenerMethodProcessor´¦ÀíÌí¼Óµ½SpringÈİÆ÷µÄÊÂ¼şÅÉ·¢Æ÷ÖĞµÄ£©
-	 * Òò´ËÊ¹ÓÃ@scope("prototype")µÄ¶àÊµÀıbean¶à´Î»ñÈ¡Ò²²»»áÔÙ´ÎÌí¼Ólistenerµ½ÅÉ·¢Æ÷ÖĞÁË
-	 * £¨ÔÙ´Î»ñÈ¡bean£¬springÖ»»á×ßcreateBean£¬populateBean,initializeBeanÁ÷³Ì£¨ÖĞ¼ä¸÷ÖÖbeanPostProcesserÒ²ºÍµ¥ÊµÀı¶ÔÏóÒ»Ñù»áÖ´ĞĞ£©£¬
-	 * ³õÊ¼»¯Ö®ºó¼´·µ»Ø¶ÔÏó£¬¶ø²»»áÔÙµ½±éÀúSmartInitializingSingleton£¨EventListenerMethodProcessorÊµÏÖµÄ½Ó¿Ú£©Á÷³Ì£©£¬
-	 * Òò´ËÎŞ·¨ÎªÃ¿¸öÊµÀıÌí¼Ó¼àÌı
+	 * 1ã€Springäº‹ä»¶æ³¨è§£@EventListenerå®ç°ç›‘å¬åŸç†æ˜¯åœ¨æ‰€æœ‰å•å®ä¾‹beanåˆ›å»ºå®Œæˆä¹‹å
+	 * ï¼ˆ11æ­¥æœ«å°¾é€šè¿‡EventListenerMethodProcessorå¤„ç†æ·»åŠ åˆ°Springå®¹å™¨çš„äº‹ä»¶æ´¾å‘å™¨ä¸­çš„ï¼‰
+	 * å› æ­¤ä½¿ç”¨@scope("prototype")çš„å¤šå®ä¾‹beanå¤šæ¬¡è·å–ä¹Ÿä¸ä¼šå†æ¬¡æ·»åŠ listeneråˆ°æ´¾å‘å™¨ä¸­äº†
+	 * ï¼ˆå†æ¬¡è·å–beanï¼Œspringåªä¼šèµ°createBeanï¼ŒpopulateBean,initializeBeanæµç¨‹ï¼ˆä¸­é—´å„ç§beanPostProcesserä¹Ÿå’Œå•å®ä¾‹å¯¹è±¡ä¸€æ ·ä¼šæ‰§è¡Œï¼‰ï¼Œ
+	 * åˆå§‹åŒ–ä¹‹åå³è¿”å›å¯¹è±¡ï¼Œè€Œä¸ä¼šå†åˆ°éå†SmartInitializingSingletonï¼ˆEventListenerMethodProcessorå®ç°çš„æ¥å£ï¼‰æµç¨‹ï¼‰ï¼Œ
+	 * å› æ­¤æ— æ³•ä¸ºæ¯ä¸ªå®ä¾‹æ·»åŠ ç›‘å¬
 	 * 
-	 *	2¡¢ÊµÏÖApplicationListener½Ó¿ÚµÄ¼àÌıÆ÷¶¼ÊÇÔÚSpringÈİÆ÷³õÊ¼»¯µÄµÚ10²½-->registerListenersÊ±
-	 *	µ÷ÓÃgetApplicationEventMulticaster().addApplicationListenerBean(listenerBeanName);Ìí¼Óµ½ÅÉ·¢Æ÷ÖĞµÄ
+	 *	2ã€å®ç°ApplicationListeneræ¥å£çš„ç›‘å¬å™¨éƒ½æ˜¯åœ¨Springå®¹å™¨åˆå§‹åŒ–çš„ç¬¬10æ­¥-->registerListenersæ—¶
+	 *	è°ƒç”¨getApplicationEventMulticaster().addApplicationListenerBean(listenerBeanName);æ·»åŠ åˆ°æ´¾å‘å™¨ä¸­çš„
 	 */
 	@Test
 	public void test2(){
@@ -50,10 +50,10 @@ public class Event_Test {
 		Map<String,Coffee> map = applicationContext.getBeansOfType(Coffee.class);
 		System.out.println(map.get("coffee") == coffee1);*/
 		applicationContext.getBean(Animal.class);
-		applicationContext.publishEvent(new ApplicationEvent("Ëµ×ßÕ¦¾Í×ß"){});
+		applicationContext.publishEvent(new ApplicationEvent("è¯´èµ°å’‹å°±èµ°"){});
 		//applicationContext.getBean(MsgService.class);
 		applicationContext.getBean(Animal.class);
-		applicationContext.publishEvent(new ApplicationEvent("Ëµ×ßÕ¦¾Í×ß°¡"){});
+		applicationContext.publishEvent(new ApplicationEvent("è¯´èµ°å’‹å°±èµ°å•Š"){});
 
 		
 		applicationContext.close();

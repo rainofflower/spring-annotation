@@ -8,14 +8,14 @@ import org.springframework.stereotype.Service;
 
 /**
  * Any beans specified are guaranteed to be created by the container before this bean.
- * @DependsOn×¢½â¿ÉÒÔÊ¹ÈÝÆ÷´´½¨µ±Ç°beanÊ±ÏÈ´´½¨depends-onÖ¸¶¨µÄbean
- * Spring´´½¨ÆÕÍ¨beanµÄË³ÐòÊÇÎÞÐòµÄ£¬Òª±£Ö¤Ä³¸öbeanÔÚÁíÒ»¸öbean´´½¨Ö®ºó´´½¨£¬¿ÉÒÔÊ¹ÓÃ@DependsOn
+ * @DependsOnæ³¨è§£å¯ä»¥ä½¿å®¹å™¨åˆ›å»ºå½“å‰beanæ—¶å…ˆåˆ›å»ºdepends-onæŒ‡å®šçš„bean
+ * Springåˆ›å»ºæ™®é€šbeançš„é¡ºåºæ˜¯æ— åºçš„ï¼Œè¦ä¿è¯æŸä¸ªbeanåœ¨å¦ä¸€ä¸ªbeanåˆ›å»ºä¹‹åŽåˆ›å»ºï¼Œå¯ä»¥ä½¿ç”¨@DependsOn
  * 
  * @author yanghui
  *
  */
 //@DependsOn("UserDao")
-@Service
+@Service("userService2")
 public class UserService {
 	
 	@Autowired
@@ -23,7 +23,7 @@ public class UserService {
 	
 	@EventListener(classes={ApplicationEvent.class})
 	public void listen(ApplicationEvent event){
-		System.out.println("UserService¡£¡£¼àÌýµ½µÄÊÂ¼þ£º"+event);
+		System.out.println("UserServiceã€‚ã€‚ç›‘å¬åˆ°çš„äº‹ä»¶ï¼š"+event);
 	}
 	
 	public void add() {

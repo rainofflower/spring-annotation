@@ -4,7 +4,7 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Repository;
 
 @Lazy
-@Repository
+@Repository("userDao2")
 public class UserDao {
 
 	public void insert() {

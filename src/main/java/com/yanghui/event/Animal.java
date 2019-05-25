@@ -36,11 +36,11 @@ public class Animal implements ApplicationContextAware{
 		this.applicationContext.addApplicationListener(listener);
 	}
 
-	//¶àÀıbeanÊ±¸Ã×¢½âÎŞĞ§
+	//å¤šä¾‹beanæ—¶è¯¥æ³¨è§£æ— æ•ˆ
 	@PreDestroy
 	public void destroy() throws Exception {
 		//this.applicationContext.
-		System.out.println("Ïú»Ù");
+		System.out.println("é”€æ¯");
 	}	
 	
 }

@@ -9,6 +9,6 @@ public class UserController {
 
 	@EventListener(classes={MyApplicationEvent.class})
 	public void sendMsg(ApplicationEvent event){
-		System.out.println("UserController..ÊÕµ½ÏûÏ¢£º"+event.getSource());
+		System.out.println("UserController..æ”¶åˆ°æ¶ˆæ¯ï¼š"+event.getSource());
 	}
 }
