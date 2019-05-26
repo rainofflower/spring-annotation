@@ -4,17 +4,19 @@ import com.atguigu.bean.IoOperation;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationListener;
+import org.springframework.context.event.ApplicationContextEvent;
 import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.context.event.EventListener;
 
 @SpringBootApplication(scanBasePackages = {"com.atguigu.bean"})
-public class Application implements ApplicationListener<ContextRefreshedEvent>{
+public class Application {
 
     public static void main(String[] args){
         SpringApplication.run(Application.class, args);
     }
 
-    public void onApplicationEvent(ContextRefreshedEvent applicationEvent) {
+    @EventListener(classes = ContextRefreshedEvent.class)
+    public void onApplicationEvent(ApplicationContextEvent applicationEvent) {
         System.out.println("spring容器初始化完成");
         ApplicationContext applicationContext = applicationEvent.getApplicationContext();
         String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();

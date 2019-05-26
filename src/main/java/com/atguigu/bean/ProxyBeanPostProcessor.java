@@ -48,8 +48,9 @@ public class ProxyBeanPostProcessor implements InstantiationAwareBeanPostProcess
                                 methodProxy.invokeSuper(target, args);
                             } catch (Throwable throwable) {
                                 throwable.printStackTrace();
+                            }finally {
+                                countDownLatch.countDown();
                             }
-                            countDownLatch.countDown();
                         });
                     }
                     try {
