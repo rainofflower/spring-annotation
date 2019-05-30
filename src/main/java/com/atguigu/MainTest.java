@@ -1,5 +1,7 @@
 package com.atguigu;
 
+import com.atguigu.aop.MathCalculator;
+import com.atguigu.config.MainConfigOfAOP;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -15,11 +17,13 @@ public class MainTest {
 //		Person bean = (Person) applicationContext.getBean("person");
 //		System.out.println(bean);
 		
-		ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfig.class);
-		String[] names = applicationContext.getBeanDefinitionNames();
-		for (String name: names) {
-			System.out.println(name);
-		}
+		ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfigOfAOP.class);
+		MathCalculator bean = applicationContext.getBean(MathCalculator.class);
+		bean.div(10,2);
+//		String[] names = applicationContext.getBeanDefinitionNames();
+//		for (String name: names) {
+//			System.out.println(name);
+//		}
 //		Person bean = applicationContext.getBean(Person.class);
 //		System.out.println(bean);
 //
