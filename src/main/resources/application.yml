@@ -6,4 +6,4 @@ thread:
     aliveSeconds: 60
 
 io:
-  thread: 4
+  thread: 2

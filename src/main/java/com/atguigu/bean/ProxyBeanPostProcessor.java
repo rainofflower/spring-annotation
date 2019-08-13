@@ -37,10 +37,13 @@ public class ProxyBeanPostProcessor implements InstantiationAwareBeanPostProcess
         if(aClass == IoOperation.class){
             Enhancer enhancer = new Enhancer();
             enhancer.setSuperclass(aClass);
-            enhancer.setInterfaces(new Class[]{SpringProxy.class});
+            //enhancer.setInterfaces(new Class[]{SpringProxy.class});
             enhancer.setCallback((MethodInterceptor)(target, method, args, methodProxy) ->{
                 if(method.getName().endsWith("operation")){
                     long start = System.currentTimeMillis();
+                    //以下方法死循环
+                    //method.invoke(target,args);
+                    methodProxy.invokeSuper(target, args);
                     CountDownLatch countDownLatch = new CountDownLatch(threadNum);
                     for (int i = 0; i<threadNum; i++){
                         executor.execute(()->{
@@ -58,7 +61,7 @@ public class ProxyBeanPostProcessor implements InstantiationAwareBeanPostProcess
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    System.out.println("代理方法 消耗"+(System.currentTimeMillis()-start)+" 时间");
+                    System.out.println("代理方法 消耗 "+(System.currentTimeMillis()-start)+" ms时间");
                     return null;
                 }
                 return methodProxy.invokeSuper(target, args);
