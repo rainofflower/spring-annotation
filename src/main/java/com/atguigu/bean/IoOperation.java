@@ -27,7 +27,7 @@ public class IoOperation {
     @Calculate
     public int operation(Map param){
         int num = Integer.parseInt(param.get("num").toString());
-        System.out.println("执行计算");
+        System.out.println(Thread.currentThread().getName()+"线程 执行计算");
         return ++num;
         //LockSupport.parkNanos(TimeUnit.SECONDS.toNanos(5));
         //System.out.println("高耗时io处理完成");

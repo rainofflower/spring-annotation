@@ -1,12 +1,14 @@
 package com.atguigu.bean;
 
 import org.springframework.aop.SpringProxy;
+import org.springframework.aop.aspectj.autoproxy.AspectJAwareAdvisorAutoProxyCreator;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.PropertyValues;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessor;
+import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessorAdapter;
 import org.springframework.cglib.proxy.Enhancer;
 import org.springframework.cglib.proxy.MethodInterceptor;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
@@ -18,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.LockSupport;
 
 @Component
-public class ProxyBeanPostProcessor implements InstantiationAwareBeanPostProcessor {
+public class ProxyBeanPostProcessor extends AspectJAwareAdvisorAutoProxyCreator {
 
     private AutowireCapableBeanFactory beanFactory;
 
@@ -33,10 +35,10 @@ public class ProxyBeanPostProcessor implements InstantiationAwareBeanPostProcess
         this.beanFactory = beanFactory;
     }
 
-    public Object postProcessBeforeInstantiation(Class<?> aClass, String s) throws BeansException {
-        if(aClass == IoOperation.class){
+    public Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName) throws BeansException {
+        if(beanClass == IoOperation.class){
             Enhancer enhancer = new Enhancer();
-            enhancer.setSuperclass(aClass);
+            enhancer.setSuperclass(beanClass);
             //enhancer.setInterfaces(new Class[]{SpringProxy.class});
             enhancer.setCallback((MethodInterceptor)(target, method, args, methodProxy) ->{
                 if(method.getName().endsWith("operation")){
@@ -68,23 +70,9 @@ public class ProxyBeanPostProcessor implements InstantiationAwareBeanPostProcess
             });
             return postProcess(enhancer.create());
         }
-        return null;
-    }
-
-    public boolean postProcessAfterInstantiation(Object o, String s) throws BeansException {
-        return true;
-    }
-
-    public PropertyValues postProcessPropertyValues(PropertyValues propertyValues, PropertyDescriptor[] propertyDescriptors, Object o, String s) throws BeansException {
-        return propertyValues;
-    }
-
-    public Object postProcessBeforeInitialization(Object o, String s) throws BeansException {
-        return o;
-    }
-
-    public Object postProcessAfterInitialization(Object o, String s) throws BeansException {
-        return o;
+        else{
+            return super.postProcessBeforeInstantiation(beanClass,beanName);
+        }
     }
 
     public <T> T postProcess(T object){
