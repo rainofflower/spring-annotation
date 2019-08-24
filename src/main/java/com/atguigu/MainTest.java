@@ -1,6 +1,7 @@
 package com.atguigu;
 
 import com.atguigu.aop.MathCalculator;
+import com.atguigu.bean.MessageService;
 import com.atguigu.config.MainConfigOfAOP;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -17,9 +18,9 @@ public class MainTest {
 //		Person bean = (Person) applicationContext.getBean("person");
 //		System.out.println(bean);
 		
-		ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfigOfAOP.class);
-		MathCalculator bean = applicationContext.getBean(MathCalculator.class);
-		bean.div(10,2);
+//		ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfigOfAOP.class);
+//		MathCalculator bean = applicationContext.getBean(MathCalculator.class);
+//		bean.div(10,2);
 //		String[] names = applicationContext.getBeanDefinitionNames();
 //		for (String name: names) {
 //			System.out.println(name);
@@ -31,7 +32,10 @@ public class MainTest {
 //		for (String name : namesForType) {
 //			System.out.println(name);
 //		}
-	
+
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:application.xml");
+		MessageService service = context.getBean(MessageService.class);
+		System.out.println(service.getMessage());
 	}
 
 }
