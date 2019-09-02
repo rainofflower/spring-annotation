@@ -4,4 +4,12 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd" default-autowire="byName">
 
     <bean id="messageService" class="com.atguigu.bean.MessageServiceImpl"/>
+
+    <bean id="color" name="color1,color2" class="com.atguigu.bean.ColorFactoryBean"></bean>
+    
+    <bean id="yellow" class="com.atguigu.bean.Color"></bean>
+
+    <bean class="com.atguigu.bean.Car"></bean>
+
+    <bean id="autowiredPostProcessor" class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"></bean>
 </beans>

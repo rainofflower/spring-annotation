@@ -75,7 +75,7 @@ public class MainConifgOfAutowired {
 	 */
 	@Bean
 	public Color color(Car car){
-		Color color = new Color();
+		Color color = new Color("s");
 		color.setCar(car);
 		return color;
 	}

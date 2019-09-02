@@ -1,22 +1,33 @@
 package com.atguigu.bean;
 
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
+
+@Getter
+@Setter
 public class Color {
-	
+
+	public Color(){}
+
+	private Byte red;
+
+	private byte yellow;
+
+	private Integer blue;
+
+	public Color(String s){
+		this.color = s;
+	}
+
+	@Autowired
 	private Car car;
 
-	public Car getCar() {
-		return car;
-	}
-
-	public void setCar(Car car) {
-		this.car = car;
-	}
+	private String color;
 
 	@Override
 	public String toString() {
 		return "Color [car=" + car + "]";
 	}
-	
-	
 
 }

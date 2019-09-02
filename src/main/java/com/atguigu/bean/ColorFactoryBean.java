@@ -9,7 +9,7 @@ public class ColorFactoryBean implements FactoryBean<Color> {
 	public Color getObject() throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("ColorFactoryBean...getObject...");
-		return new Color();
+		return new Color("s");
 	}
 
 	public Class<?> getObjectType() {
@@ -22,7 +22,8 @@ public class ColorFactoryBean implements FactoryBean<Color> {
 	//false：多实例，每次获取都会创建一个新的bean；
 	public boolean isSingleton() {
 		// TODO Auto-generated method stub
-		return false;
+//		return false;
+		return true;
 	}
 
 }
