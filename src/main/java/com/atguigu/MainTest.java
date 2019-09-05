@@ -1,14 +1,12 @@
 package com.atguigu;
 
 import com.atguigu.aop.MathCalculator;
-import com.atguigu.bean.Color;
-import com.atguigu.bean.MessageService;
+import com.atguigu.bean.*;
 import com.atguigu.config.MainConfigOfAOP;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.atguigu.bean.Person;
 import com.atguigu.config.MainConfig;
 import org.springframework.util.Assert;
 
@@ -39,16 +37,22 @@ public class MainTest {
 //		}
 
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext();
-		context.setConfigLocation("classpath:application.xml");
+		context.setConfigLocation("classpath:application-test.xml");
 		context.refresh();
 		MessageService service = context.getBean(MessageService.class);
+		service.setMessage("message1");
 		System.out.println(service.getMessage());
-		Assert.isInstanceOf(String.class,"4","不是String");
-		System.out.println(Integer.class.isInstance(5));
-		Object color1 = context.getBean("color1");
-		Object color2 = context.getBean("&color2");
-		System.out.println(color2);
-		System.out.println(Color.class.isInstance(color1));
+		System.out.println(service.getYellow());
+		MessageService2 service2 = context.getBean(MessageService2.class);
+		service2.setMessage("message2");
+		System.out.println(service2.getMessage());
+		System.out.println(service2.getYellow());
+//		Assert.isInstanceOf(String.class,"4","不是String");
+//		System.out.println(Integer.class.isInstance(5));
+//		Object color1 = context.getBean("color1");
+//		Object color2 = context.getBean("&color2");
+//		System.out.println(color2);
+//		System.out.println(Color.class.isInstance(color1));
 
 	}
 

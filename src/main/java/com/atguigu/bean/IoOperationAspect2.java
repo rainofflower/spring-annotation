@@ -19,12 +19,12 @@ public class IoOperationAspect2 {
     @Before("execution(public * com.atguigu.bean.IoOperation.*(..))")
     public void beforeMethod(){
        ContextHolder.set(i.getAndIncrement());
-       //System.out.println("前置方法2");
+       System.out.println("前置方法2");
     }
 
     @After("execution(public * com.atguigu.bean.IoOperation.*(..))")
     public void afterMethod(){
         ContextHolder.get();
-        //System.out.println("后置方法2");
+        System.out.println("后置方法2");
     }
 }

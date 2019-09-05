@@ -2,7 +2,7 @@ package com.atguigu.bean;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class MessageServiceImpl implements MessageService {
+public class MessageService2{
 
     @Autowired
     private Yellow yellow;

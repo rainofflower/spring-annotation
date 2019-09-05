@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd" default-autowire="byName">
+
+    <bean id="messageService" class="com.atguigu.bean.MessageServiceImpl"/>
+
+    <bean id="messageService2" class="com.atguigu.bean.MessageService2"/>
+
+    <bean class="com.atguigu.bean.Yellow"/>
+
+    <!--<bean id="color" name="color1,color2" class="com.atguigu.bean.ColorFactoryBean"></bean>-->
+
+    <!--<bean id="yellow" class="com.atguigu.bean.Color"></bean>-->
+
+    <!--<bean class="com.atguigu.bean.Car"></bean>-->
+
+    <bean id="autowiredPostProcessor" class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"></bean>
+
+    <bean id="logArgsAdvice" class="com.atguigu.bean.LogArgsAdvice"/>
+
+    <bean id="logArgsAdvisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+        <property name="advice" ref="logArgsAdvice"/>
+        <property name="patterns" value="com.atguigu.bean.MessageService2.set.*"/>
+    </bean>
+
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator">
+        <property name="proxyTargetClass" value="true"/>
+    </bean>
+
+    <bean class="com.atguigu.bean.ProxyBeanPostProcessorTest"/>
+</beans>

@@ -39,7 +39,7 @@ public class ProxyBeanPostProcessor extends AspectJAwareAdvisorAutoProxyCreator 
         if(beanClass == IoOperation.class){
             Enhancer enhancer = new Enhancer();
             enhancer.setSuperclass(beanClass);
-            //enhancer.setInterfaces(new Class[]{SpringProxy.class});
+            enhancer.setInterfaces(new Class[]{SpringProxy.class});
             enhancer.setCallback((MethodInterceptor)(target, method, args, methodProxy) ->{
                 if(method.getName().endsWith("operation")){
                     long start = System.currentTimeMillis();
