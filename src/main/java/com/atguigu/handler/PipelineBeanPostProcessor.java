@@ -27,7 +27,7 @@ public class PipelineBeanPostProcessor implements BeanPostProcessor, Application
     }
 
     @Override
-    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
         Class<?> clazz = bean.getClass();
         if(clazz.isAnnotationPresent(Pipeline.class)){
             Map<String, Object> handlerMap = applicationContext.getBeansWithAnnotation(Handler.class);
