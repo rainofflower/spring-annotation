@@ -2,6 +2,8 @@ package com.atguigu.test;
 
 import java.util.Map;
 
+import com.atguigu.handler.AppConfig;
+import com.atguigu.handler.MyPipeline1;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
@@ -71,10 +73,13 @@ public class IOCTest {
 	@SuppressWarnings("resource")
 	@Test
 	public void test01(){
-		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfig.class);
+		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
 		String[] definitionNames = applicationContext.getBeanDefinitionNames();
 		for (String name : definitionNames) {
 			System.out.println(name);
 		}
+		System.out.println("----");
+		MyPipeline1 bean = applicationContext.getBean(MyPipeline1.class);
+		System.out.println(bean);
 	}
 }

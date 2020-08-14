@@ -1,11 +1,13 @@
-package com.atguigu.bean;
+package com.atguigu.handler.extra;
 
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 @Getter
 @Setter
+@Component
 public class Color {
 
 	public Color(){}
@@ -20,7 +22,7 @@ public class Color {
 		this.color = s;
 	}
 
-	@Autowired(required = false)
+	@Autowired
 	private Car car;
 
 	private String color;
