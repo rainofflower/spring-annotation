@@ -7,3 +7,6 @@ thread:
 
 io:
   thread: 2
+
+a:
+  host: a.com

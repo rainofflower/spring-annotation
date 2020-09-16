@@ -1,8 +1,7 @@
 package com;
 
-import com.atguigu.bean.BlueSub;
-import com.atguigu.bean.IoOperation;
-import org.springframework.aop.aspectj.autoproxy.AspectJAwareAdvisorAutoProxyCreator;
+import com.yanghui.properties.AProperties;
+import com.yanghui.properties.BProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,33 +11,34 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.CountDownLatch;
-
-@SpringBootApplication(scanBasePackages = {"com.atguigu.bean"})
+@SpringBootApplication(scanBasePackages = {"com.yanghui.properties"})
 public class Application {
 
     public static void main(String[] args){
         SpringApplication.run(Application.class, args);
     }
 
-    @Autowired
-    private ThreadPoolTaskExecutor executor;
+//    @Autowired
+//    private ThreadPoolTaskExecutor executor;
 
     @EventListener(classes = ContextRefreshedEvent.class)
     public void onApplicationEvent(ApplicationContextEvent applicationEvent) {
         System.out.println("spring容器初始化完成");
         ApplicationContext applicationContext = applicationEvent.getApplicationContext();
-        String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
-        for (String name : beanDefinitionNames) {
+        AProperties beanA = applicationContext.getBean(AProperties.class);
+        System.out.println(beanA);
+
+        BProperties beanB = applicationContext.getBean(BProperties.class);
+        System.out.println(beanB);
+//        String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
+        /*for (String name : beanDefinitionNames) {
             System.out.println(name);
-        }
+        }*/
 //        BlueSub bean = applicationContext.getBean(BlueSub.class);
 //        bean.init();
-        IoOperation ioOperation = applicationContext.getBean(IoOperation.class);
+        /*IoOperation ioOperation = applicationContext.getBean(IoOperation.class);
         Map<Object, Object> param = new HashMap<>();
-        param.put("num",1);
+        param.put("num",1);*/
 //        CountDownLatch countDownLatch = new CountDownLatch(2);
 //        for (int i = 0; i<2; i++){
 //            executor.execute(()->{
@@ -59,7 +59,7 @@ public class Application {
 //        } catch (InterruptedException e) {
 //            //
 //        }
-        ioOperation.operation(param);
+//        ioOperation.operation(param);
 //        IoOperation ownIo = new IoOperation();
 //        ownIo.old();
     }
