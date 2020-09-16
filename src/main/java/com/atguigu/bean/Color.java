@@ -10,7 +10,7 @@ public class Color {
 
 	public Color(){}
 
-	private Byte red;
+	private Byte red = (byte)127;
 
 	private byte yellow;
 
